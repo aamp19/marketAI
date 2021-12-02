@@ -1,0 +1,1 @@
+mongodb+srv://marketAI:abcd1234@marketai-cluster1.4m8j0.mongodb.net/marketAI-DB?retryWrites=true&w=majority
