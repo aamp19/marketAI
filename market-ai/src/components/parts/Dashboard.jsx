@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
+import Image from "./graph.jpg"
 const Dashboard = (props) => {
     const [pythonContent, setPythonContent] = useState('')
     const [MLprice1, setMLprice1] = useState('')
 
 
-    const ML_API = () => {
-        Axios.post('http://localhost:3001/api/ML').then((response) => {
+    useEffect(() => {
+        Axios.post('http://localhost:3001/api/ML').then(async (response) => {
             // console.log([response.data['4'], response.data['5'], response.data['6'], response.data['7'], response.data['8'], response.data['9'], response.data['10'], response.data['11'], response.data['12'], response.data['13'], response.data['14'], response.data['15'], response.data['16'], response.data['17'], response.data['18']])
             console.log(response)
             setMLprice1(response.data)
 
         })
+    }, [])
 
-    }
+
+
 
     useEffect(() => {
         Axios.get('http://localhost:3001/api/dashboard').then((response) => {
@@ -38,7 +41,7 @@ const Dashboard = (props) => {
                     </td>
                     <td>
                         <div className="dashboard">
-                            <button onClick={ML_API}>Click to Generate Graph</button>
+                            <h2>Graph</h2>
 
                         </div>
 
@@ -54,7 +57,7 @@ const Dashboard = (props) => {
                                 <p>
                                     {MLprice1 ? [MLprice1].map(e =>
 
-                                        <p>{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(164)}</p>
+                                        <p id="article-style">{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(164)}</p>
                                         // <p>hello world</p>
 
                                     ) : <div></div>}
@@ -66,7 +69,8 @@ const Dashboard = (props) => {
                         <p>
 
                             <div id="graph">
-                                <h3 hidden>Latest Articles</h3>
+                                <h3>Stock Graph</h3>
+                                <div id="graphImg"><img id="graphpic" src={Image} /></div>
                             </div>
                         </p>
                     </td>
@@ -74,10 +78,10 @@ const Dashboard = (props) => {
 
             </table>
             <div className="price-update">
-                <button onClick={ML_API}>Click for prices in next 15 days</button>
+                <h2>Prices in next 15 days are: </h2>
                 {MLprice1 ? [MLprice1].map(e =>
 
-                    <p>{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(0, 161)}</p>
+                    <p id="futureprices">{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(0, 161)}</p>
                     // <p>hello world</p>
 
                 ) : <div></div>}
