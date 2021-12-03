@@ -16,6 +16,11 @@ img{
   width: 400px;
   height: 150px;
 }
+#graphpic{
+  height: 250px;
+  border-radius: 0px;
+  border: 5px solid #555;
+}
 ::placeholder{
   font-size: 17px;
   color: #000058;
@@ -70,14 +75,14 @@ button{
   padding: 20px;
 }
 .dashboard-table{
-  margin-left: 20%;
+  margin-left: 10%;
   padding: 50px;
   width:50%;
 
 }
 .dashboard{
   border-radius: 25px;
-  width:350px;
+  width:450px;
   margin-left: 32%;
   color: black;
   background-color: #f2f2f2;
@@ -86,14 +91,20 @@ button{
 .price-update{
   border-radius: 25px;
   width:350px;
-  margin-left: 42%;
+  margin-left: 40%;
   color: black;
   background-color: #f2f2f2;
   padding: 10px;
 }
+#article-style{
+  word-spacing: 10px;
+}
+#futureprices{
+  word-spacing: 9999999999px;
+}
 #articles{
   border-radius: 25px;
-  width:350px;
+  width:450px;
   height:500px;
   margin-left: 32%;
   color: black;
@@ -102,7 +113,7 @@ button{
 }
 #graph{
   border-radius: 25px;
-  width:350px;
+  width:450px;
   height:500px;
   margin-left: 32%;
   color: black;
