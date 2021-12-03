@@ -4,6 +4,7 @@ from requests.models import Response
 import pandas_datareader as web
 import numpy as np
 import pandas as pd
+import os
 from datetime import date, datetime, timedelta
 from datetime import timedelta
 from sklearn.preprocessing import MinMaxScaler
@@ -88,6 +89,9 @@ def predictor(ticker):
     valid = data[train_data_len:]
     valid['Predictions'] = preds
 
+    # if os.path.exists("..\market-ai\src\components\parts\graph.jpg"):
+    #     os.remove("..\market-ai\src\components\parts\graph.jpg")
+
     # Visualize data
     plt.figure(figsize=(16, 8))
     plt.title("Modeled Data for "+ticker+" Stocks")
@@ -96,7 +100,9 @@ def predictor(ticker):
     plt.plot(train['Close'])
     plt.plot(valid[['Close', 'Predictions']])
     plt.legend(['Train', 'Valid', 'Predicted'], loc='lower right')
-    plt.show()
+    plt.savefig('..\market-ai\src\components\parts\graph.jpg',
+                bbox_inches='tight')
+    plt.close()
 
     # Predict next closing price
     quote = web.DataReader(ticker, data_source='yahoo',
@@ -188,3 +194,4 @@ def news_analysis(ticker):
 
 predictor(sys.argv[1])
 news_analysis(sys.argv[1])
+exit
