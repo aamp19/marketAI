@@ -21,6 +21,8 @@ async function connect() {
   return db;
 }
 
+
+
 async function register(username, password) {
   var conn = await connect();
   var existingUser = await conn.collection('users').findOne({ username });
@@ -79,18 +81,19 @@ app.get("/api/content", async (req, res) => {
 let content = '';
 const { application } = require('express');
 
-
+let num = 0;
 
 app.post('/api/ML', async (req, res) => {
-  const { spawn } = require('child_process');
-  const childPython = spawn('python', ['model.py', `${stockTicker}`]);
-  console.log('reaches')
-  childPython.stdout.on('data', (data) => {
-    content = `${data}`
-    console.log(`${content}`)
 
+  const { spawn } = require('child_process');
+  console.log('reaches')
+
+  const childPython = await spawn('python', ['model.py', `${stockTicker}`]);
+  await childPython.stdout.on('data', (data) => {
+    content = `${data}`
+    console.log(content)
   })
-  res.send(`${content}`)
+  setTimeout(() => res.send(`${content}`), 70000);
 });
 
 
