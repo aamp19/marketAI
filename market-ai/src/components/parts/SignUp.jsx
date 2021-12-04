@@ -78,6 +78,8 @@ const SignUp = () => {
                         <button>Sign Up</button>
                     </p>
                 </form>
+                <p>Already have an account?</p>
+                <p><a href="login">Login</a></p>
             </div>
         </div>
     )
