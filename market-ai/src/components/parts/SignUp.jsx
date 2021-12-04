@@ -23,7 +23,23 @@ const SignUp = () => {
         <div>
             <div className="form">
                 <h3>Register Into Your Account </h3>
-                <form action="search">
+                <p >
+                    Password field must contain 8 or more characters
+                </p>
+
+                <p>
+                    Must have at least one number
+                </p>
+
+                <p>
+                    must have at lease one uppercase
+                </p>
+                <p>
+
+                    must have at least lowercase letter:
+
+                </p>
+                <form action="search" onSubmit={signup}>
                     <p>
                         <label htmlFor="firstname">Enter First Name:</label>
                     </p>
@@ -56,10 +72,10 @@ const SignUp = () => {
                     </p>
                     <input type="password" id="pass" onChange={(e) => {
                         setPassword(e.target.value)
-                    }} required />
+                    }} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
 
                     <p>
-                        <button onClick={signup}>Sign Up</button>
+                        <button>Sign Up</button>
                     </p>
                 </form>
             </div>
