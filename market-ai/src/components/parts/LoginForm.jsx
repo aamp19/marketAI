@@ -67,6 +67,13 @@ const LoginForm = () => {
                 <p>
                     <button onClick={login}>Login</button>
                 </p>
+
+                <p>
+                    Don't have an account?
+                </p>
+                <p>
+                    <a href="/">Sign Up</a>
+                </p>
                 {/* </form> */}
             </div>
         </div>
