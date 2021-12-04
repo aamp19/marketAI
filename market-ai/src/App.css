@@ -17,7 +17,8 @@ img{
   height: 150px;
 }
 #graphpic{
-  height: 250px;
+  height: 380px;
+  width: 600px;
   border-radius: 0px;
   border: 5px solid #555;
 }
@@ -75,15 +76,15 @@ button{
   padding: 20px;
 }
 .dashboard-table{
-  margin-left: 10%;
+  margin-left: 0%;
   padding: 50px;
   width:50%;
 
 }
 .dashboard{
   border-radius: 25px;
-  width:450px;
-  margin-left: 32%;
+  width:750px;
+  margin-left: 0%;
   color: black;
   background-color: #f2f2f2;
   padding: 10px;
@@ -91,31 +92,42 @@ button{
 .price-update{
   border-radius: 25px;
   width:350px;
-  margin-left: 40%;
+  margin-left: 38%;
   color: black;
   background-color: #f2f2f2;
   padding: 10px;
 }
 #article-style{
-  word-spacing: 10px;
+  word-spacing: 60px;
+  margin-top: 2%;
 }
 #futureprices{
   word-spacing: 9999999999px;
 }
+.error-msg{
+  color: red;
+}
+#headings{
+  text-indent: 30px;
+  margin-top: 10%;
+
+  text-align: left;
+  word-spacing: 71px;
+}
 #articles{
   border-radius: 25px;
-  width:450px;
+  width:750px;
   height:500px;
-  margin-left: 32%;
+  margin-left: 0%;
   color: black;
   background-color: #f2f2f2;
   padding: 10px;
 }
 #graph{
   border-radius: 25px;
-  width:450px;
+  width:750px;
   height:500px;
-  margin-left: 32%;
+  margin-left: 0%;
   color: black;
   background-color: #f2f2f2;
   padding: 10px;
