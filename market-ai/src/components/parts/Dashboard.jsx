@@ -55,10 +55,20 @@ const Dashboard = (props) => {
                             <div id="articles">
                                 <h3>Latest Articles</h3>
                                 <p>
+                                    <p id="headings">Ticker Date Time neg neu pos compound</p>
                                     {MLprice1 ? [MLprice1].map(e =>
 
-                                        <p id="article-style">{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(164)}</p>
+                                        <p id="article-style">
+                                            {JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(301).replace('compoundTicker', `compound Ticker`).replaceAll('0.0000lcid', `0.0000 lcid`).replace('Mean Sentiment of articles', '')}
+
+                                        </p>
+                                        /* <p id="article-test">
+                                            {JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(301).replace('compoundTicker', `compound Ticker`).replaceAll('0.0000lcid', `0.0000 lcid`).replace('Mean', ' Mean'), "Test 123123"}
+                                        </p> */
+
                                         // <p>hello world</p>
+                                        // <p id="article-test">{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(301).replace('compoundTicker', `compound Ticker`).replaceAll('0.0000lcid', `0.0000 lcid`).replace('Mean', ' Mean')}</p>
+
 
                                     ) : <div></div>}
                                 </p>
@@ -81,7 +91,7 @@ const Dashboard = (props) => {
                 <h2>Prices in next 15 days are: </h2>
                 {MLprice1 ? [MLprice1].map(e =>
 
-                    <p id="futureprices">{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(0, 161)}</p>
+                    <p id="futureprices">{JSON.stringify(e).replace(/[\[\]']+/g, '').replace(/['"]+/g, '').replaceAll('\\r\\n', '').slice(0, 178)}</p>
                     // <p>hello world</p>
 
                 ) : <div></div>}
