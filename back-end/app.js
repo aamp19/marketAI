@@ -49,9 +49,14 @@ app.post("/api/signup", async (req, res) => {
 
 app.post('/api/ticker', async (req, res) => {
   let tickerSymbol = req.body.tickerSymbol
-  for (let i = 0; i < tickerSymbol.length; i++) {
-    // console.log(tickerSymbol[i])
-    stockTicker.push(tickerSymbol[i])
+  if (tickerSymbol == 'appl') {
+    console.log('siu')
+  }
+  else {
+    for (let i = 0; i < tickerSymbol.length; i++) {
+      // console.log(tickerSymbol[i])
+      stockTicker.push(tickerSymbol[i])
+    }
   }
   console.log(stockTicker.toString().replace(/,/g, ""))
   stockTicker = stockTicker.toString().replace(/,/g, "")
@@ -67,21 +72,13 @@ app.post("/api/login", async (req, res) => {
   const password = req.body.password
   conn.collection('users').findOne({ username: userName, password: password }, (err, result) => {
     console.log(result)
+    res.send(result)
   })
 })
 
-app.get("/api/content", async (req, res) => {
-  var conn = await connect();
-  const userName = req.body.username
-  const password = req.body.password
-  conn.collection('users').findOne({ username: userName, password: password }, (err, result) => {
-    console.log(result)
-  })
-})
 let content = '';
 const { application } = require('express');
 
-let num = 0;
 
 app.post('/api/ML', async (req, res) => {
 
@@ -93,7 +90,8 @@ app.post('/api/ML', async (req, res) => {
     content = `${data}`
     console.log(content)
   })
-  setTimeout(() => res.send(`${content}`), 70000);
+  setTimeout(() => res.send(`${content}`), 20000);
+  //LCID 20000 timeout works
 });
 
 
