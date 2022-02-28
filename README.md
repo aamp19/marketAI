@@ -20,3 +20,5 @@ page, ML pipeline generator and visualization tool, APIS for storing and retriev
 model predictions from database
   </li>
 </ul>
+
+<a href="https://www.youtube.com/watch?v=-0Vzc5jVTZ0&t=357s&ab_channel=AtschuthanPaskaran">Click here for a live demo of the application</a>
